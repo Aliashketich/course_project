@@ -1,7 +1,7 @@
 package webenum;
 
 public enum PageNameRedirect {
-    INDEX("/front/jsp/index.jsp"),ERROR("/front/jsp/error.jsp");
+    INDEX("/cafe.by/index"),ERROR("/front/jsp/error.jsp");
 
     private String path;
 
