@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
+h1 { margin: 0; }
+a {
+    color: #999;
+    text-decoration: none;
+}
+a:hover { color: #1dabb8; }
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    flex: 1 0 auto;
+}
+#autoriz_box{
+    font: 100%/1.5em sans-serif;
+    background: url("/front/image/bg.png") repeat;
+    width: 35%;
+}
+#info_box{
+    background: #348ac7;
+    border: #480048;
+    width: 65%;
+}
+#info_box_image{
+    width: 100%;
+    height: 100%;
+}

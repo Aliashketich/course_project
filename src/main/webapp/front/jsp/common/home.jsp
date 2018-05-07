@@ -6,21 +6,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale = 1">
-    <link rel="stylesheet" href="http://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://bootstraptema.ru/snippets/menu/2016/slidemenu/slidemenu.css"/>
-    <script src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
-    <script src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
-    <script src="http://bootstraptema.ru/snippets/menu/2016/slidemenu/slidemenu.js"></script>
+    <style>
+        <%@include file="/front/css/home.css"%>
+        <%@include file="/front/css/login_form.css"%>
+    </style>
     <script>
         <%@include file="/front/js/lib/jquery.min.js" %>
+        <%@include file="/front/js/form_validation.js"%>
     </script>
     <title>Cafe</title>
 </head>
-
 <body>
-<%@ include file="/front/jsp/common/information.jsp" %>
-<%@ include file="/front/jsp/common/menu.jsp" %>
-<%@ include file="/front/jsp/common/header.jsp" %>
-<%@ include file="/front/jsp/common/form.jsp" %>
+    <div id="container">
+        <div id="header"></div>
+        <div id="content">
+            <div id="autoriz_box">
+                <div id="login-form">
+                    <h1>Авторизация в системе</h1>
+                    <fieldset>
+                        <form action="cafe.by/sign_in" method="post" name="autorizForm">
+                            <input type="text" name="login_in" placeholder="Имя пользователя" >
+                            <input type="password" name="password_in" placeholder="Пароль" >
+                            <input type="submit" name="submit" value="ВОЙТИ">
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+            <div id="info_box">
+                <img id="info_box_image" src="/front/image/info_box.jpg">
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
 </body>
 </html>
