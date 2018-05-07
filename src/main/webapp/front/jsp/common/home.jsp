@@ -24,9 +24,11 @@
                 <div id="login-form">
                     <h1>Авторизация в системе</h1>
                     <fieldset>
-                        <form action="cafe.by/sign_in" method="post" name="autorizForm">
-                            <input type="text" name="login_in" placeholder="Имя пользователя" >
-                            <input type="password" name="password_in" placeholder="Пароль" >
+                        <form action="cafe.by/sign_in" method="post" name="autorizForm" id="autorizForm">
+                            <input type="text" id="login_in" placeholder="Имя пользователя" >
+                            <span class="cd-error-message" id="login-span">Некорректный логин</span>
+                            <input type="password" id="password_in" placeholder="Пароль" >
+                            <span class="cd-error-message" id="password-span">Некорректный пароль</span>
                             <input type="submit" name="submit" value="ВОЙТИ">
                         </form>
                     </fieldset>

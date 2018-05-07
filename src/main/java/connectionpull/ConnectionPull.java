@@ -84,7 +84,7 @@ public class ConnectionPull {
 
     }
 
-    public void releasePool() {
+    public void releasePull() {
         while (!givenConnections.isEmpty()) {
             try {
                 Connection connection = givenConnections.take();

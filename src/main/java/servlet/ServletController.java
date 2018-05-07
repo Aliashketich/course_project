@@ -25,7 +25,7 @@ public class ServletController extends HttpServlet {
 
     @Override
     public void init() {
-//        connectionPull = ConnectionPull.getInstance();
+        connectionPull = ConnectionPull.getInstance();
     }
 
     @Override

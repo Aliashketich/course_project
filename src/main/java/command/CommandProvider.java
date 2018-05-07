@@ -2,7 +2,6 @@ package command;
 
 import command.impl.Index;
 import command.impl.SignIn;
-import command.impl.SignUp;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.EnumMap;
@@ -14,9 +13,7 @@ public class CommandProvider {
     private Map<CommandName, ICommand> commands = new EnumMap<CommandName,ICommand>(CommandName.class);
 
     public CommandProvider() {
-
         commands.put(CommandName.SIGN_IN,new SignIn());
-        commands.put(CommandName.SIGN_UP,new SignUp());
         commands.put(CommandName.INDEX,new Index());
     }
 
