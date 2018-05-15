@@ -1,5 +1,6 @@
 package service.impl;
 
+import dao.ext.WaiterDAO;
 import entity.ext.Waiter;
 import exception.DaoException;
 import exception.ServiceException;
@@ -35,21 +36,46 @@ public class WaiterServiceImpl implements WaiterService {
 
     @Override
     public Waiter findWaiterByLogin(String login) {
-        return null;
+        WaiterDAO waiterDao = daoFactory.getWaiterDao();
+        Waiter waiter = null;
+        try {
+            waiter = waiterDao.findWaiterByLogin(login);
+        } catch (DaoException e) {
+            LOGGER.log(Level.ERROR, "");
+        }
+        return waiter;
     }
 
     @Override
-    public Waiter findWaiterByEmail(String email) {
-        return null;
+    public Waiter findWaiterByEmail(String email) throws ServiceException {
+        LOGGER.log(Level.DEBUG, "Waiter Service: Start findWaiterByEmail");
+        try {
+            LOGGER.log(Level.DEBUG, "Waiter Service: Finish findWaiterByEmail");
+            return daoFactory.getWaiterDao().findWaiterByEmail(email);
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
     }
 
     @Override
     public List<Waiter> findAllWaiters() throws ServiceException {
-        return null;
+        LOGGER.log(Level.DEBUG, "Waiter Service: Start findAllWaiters");
+        try {
+            LOGGER.log(Level.DEBUG, "Waiter Service: Finish findAllWaiters");
+            return daoFactory.getWaiterDao().findAllWaiters();
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
     }
 
     @Override
     public Waiter findWaiterById(int idWaiter) throws ServiceException {
-        return null;
+        LOGGER.log(Level.DEBUG, "Waiter Service: Start findWaiterById");
+        try {
+            LOGGER.log(Level.DEBUG, "Waiter Service: Finish findWaiterById");
+            return daoFactory.getWaiterDao().findWaiterById(idWaiter);
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
     }
 }
