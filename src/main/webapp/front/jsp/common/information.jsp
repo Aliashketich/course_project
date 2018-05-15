@@ -1,4 +1,4 @@
-<head>
+﻿<head>
     <head>
         <meta charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Information</h4>
+                <h4 class="modal-title">Упс!</h4>
             </div>
             <div class="modal-body">
                 <p>${error_data}</p>

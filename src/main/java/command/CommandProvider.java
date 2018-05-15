@@ -1,6 +1,7 @@
 package command;
 
 import command.impl.forward.Index;
+import command.impl.redirect.AddProduct;
 import command.impl.redirect.SignIn;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ public class CommandProvider {
     public CommandProvider() {
         commands.put(CommandName.SIGN_IN,new SignIn());
         commands.put(CommandName.INDEX,new Index());
+        commands.put(CommandName.ADD_PRODUCT,new AddProduct());
     }
 
     public static CommandProvider getInstance() {

@@ -16,8 +16,8 @@
     </tag>
 
     <tag>
-        <name>orderlist</name>
-        <tag-class>tag.OrderList</tag-class>
+        <name>menu</name>
+        <tag-class>tag.Menu</tag-class>
         <body-content>empty</body-content>
     </tag>
 </taglib>

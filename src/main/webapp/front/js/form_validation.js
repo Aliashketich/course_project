@@ -1,4 +1,3 @@
-
 $(document).ready(function ($) {
     $('form#autorizForm').on('click', function (e) {
 
