@@ -1,9 +1,7 @@
 package factory;
 
-import dao.ext.AdminDAO;
-import dao.ext.OrderDAO;
-import dao.ext.ProductDAO;
-import dao.ext.WaiterDAO;
+import dao.IOrderProductDAO;
+import dao.ext.*;
 
 
 public class DaoFactory {
@@ -12,6 +10,7 @@ public class DaoFactory {
     private WaiterDAO waiterDao = new WaiterDAO();
     private ProductDAO productDAO = new ProductDAO();
     private OrderDAO orderDAO = new OrderDAO();
+    private OrderProductDAO orderProductDAO = new OrderProductDAO();
 
 
     public static DaoFactory getInstance(){
@@ -32,5 +31,9 @@ public class DaoFactory {
 
     public OrderDAO getOrderDao() {
         return orderDAO;
+    }
+
+    public OrderProductDAO getOrderProductDao() {
+        return orderProductDAO;
     }
 }
