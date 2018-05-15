@@ -1,22 +1,24 @@
 package factory;
 
-import service.AdministratorService;
-import service.impl.AdministratorServiceImpl;
+import dao.IAdminDAO;
+import service.AdminService;
+import service.WaiterService;
+import service.impl.AdminServiceImpl;
+import service.impl.WaiterServiceImpl;
 
 public class ServiceFactory {
     private static final ServiceFactory INSTANCE = new ServiceFactory();
-//    private ClientService clientService = new ClientServiceImpl();
-    private AdministratorService administratorService = new AdministratorServiceImpl();
+    private AdminService adminService = new AdminServiceImpl();
+    private WaiterService waiterService = new WaiterServiceImpl();
 
     public static ServiceFactory getInstance() {
         return INSTANCE;
     }
 
-//    public ClientService getClientService() {
-//        return clientService;
-//    }
-
-    public AdministratorService getAdministratorService() {
-        return administratorService;
+    public AdminService getAdminService() {
+        return adminService;
+    }
+    public WaiterService getWaiterService() {
+        return waiterService;
     }
 }

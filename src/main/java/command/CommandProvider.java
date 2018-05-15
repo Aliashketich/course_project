@@ -1,7 +1,7 @@
 package command;
 
-import command.impl.Index;
-import command.impl.SignIn;
+import command.impl.forward.Index;
+import command.impl.redirect.SignIn;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.EnumMap;

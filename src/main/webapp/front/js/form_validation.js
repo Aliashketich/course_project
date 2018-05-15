@@ -1,9 +1,4 @@
-$(document).ready(function () {
-    $("#autoriz_box").click(function () {
-        // language=JQuery-CSS
-        $("#autoriz_box").modal({backdrop: true});
-    });
-});
+
 $(document).ready(function ($) {
     $('form#autorizForm').on('click', function (e) {
 

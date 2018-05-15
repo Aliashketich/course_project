@@ -13,14 +13,14 @@ public class Waiter extends User implements Serializable,Cloneable {
         super();
     }
 
-    public Waiter(int idWaiter, String login, String password, boolean role, String name, String surname, String email) {
+    public Waiter(int idWaiter, String login, String password, String name, String surname, String email,boolean role) {
         super(idWaiter, login, password, role);
         this.name = name;
         this.surname = surname;
         this.email = email;
     }
 
-    public Waiter(String login, String password, boolean role, String name, String surname, String email) {
+    public Waiter(String login, String password, String name, String surname, String email, boolean role) {
         super(login, password, role);
         this.name = name;
         this.surname = surname;

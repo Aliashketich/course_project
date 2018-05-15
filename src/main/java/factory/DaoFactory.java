@@ -1,24 +1,24 @@
 package factory;
 
 import dao.ext.AdminDAO;
-//import course_project.dao.impl.ClientDao;
+import dao.ext.WaiterDAO;
 
 
 public class DaoFactory {
     private static final DaoFactory INSTANCE = new DaoFactory();
-//    private ClientDao clientDao = new ClientDao();
     private AdminDAO adminDAO = new AdminDAO();
+    private WaiterDAO waiterDao=new WaiterDAO();
 
 
     public static DaoFactory getInstance(){
         return INSTANCE;
     }
 
-//    public ClientDao getClientDao() {
-//        return clientDao;
-//    }
-
-    public AdminDAO getAdministratorDao() {
+    public AdminDAO getAdminDao() {
         return adminDAO;
+    }
+
+    public WaiterDAO getWaiterDao() {
+        return waiterDao;
     }
 }

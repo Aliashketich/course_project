@@ -1,7 +1,8 @@
-package command.impl;
+package command.impl.forward;
 
 import command.ICommand;
 import webenum.PageName;
+import webenum.PageNameRedirect;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,8 @@ public class Index implements ICommand {
             locale = Locale.getDefault().getLanguage();
         }
         System.out.println(locale);
+        request.getSession().setAttribute("pageCommand", PageNameRedirect.INDEX.getPath());
+
         request.getSession().setAttribute("locale",locale);
         return pageName.getPath();
     }
