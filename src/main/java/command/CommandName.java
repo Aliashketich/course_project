@@ -15,7 +15,7 @@ public enum CommandName {
     WAITER_PROFILE,
     DELETE_PRODUCT,
     ADD_PRODUCT,
-    SHOW_CLIENT,
-    BAN_CLIENT,
+    SHOW_WAITER,
+    SHOW_PRODUCT,
     SHOW_ADMIN
 }

@@ -53,20 +53,20 @@
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="/cafe.by/index">
-                            Вы вошли как ${admin.login}.
+                           ${admin.login}
                         </a>
                     </li>
                     <li>
                         <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
-                        <a href="#">Меню</a>
+                        <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
                         <a href="#">Добавить продукт</a>
                     </li>
                     <li>
-                        <a href="#">Официанты</a>
+                        <a href="/cafe.by/show_waiter">Официанты</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>
@@ -77,7 +77,7 @@
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="/cafe.by/index">
-                            Вы вошли как ${waiter.login}.
+                            ${waiter.login}
                         </a>
                     </li>
                     <li>
@@ -90,7 +90,7 @@
                         <a href="">Добавить заказ</a>
                     </li>
                     <li>
-                        <a href="#">Меню</a>
+                        <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>

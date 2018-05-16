@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         <%@include file="/front/css/menu.css"%>
+        <%@include file="/front/css/orderlist.css"%>
     </style>
     <script>
         $(document).ready(function () {
@@ -40,7 +41,7 @@
             });
         });
     </script>
-
+    <title>Waiters</title>
 </head>
 
 <div id="wrapper">
@@ -57,31 +58,16 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/cafe.by/show_order_waiter">Заказы</a>
+                        <a href="/cafe.by/show_order_admin">Заказы</a>
+                    </li>
+                    <li>
+                        <a href="#">Меню</a>
+                    </li>
+                    <li>
+                        <a href="#">Добавить продукт</a>
                     </li>
                     <li>
                         <a href="/cafe.by/show_waiter">Официанты</a>
-                    </li>
-                    <li>
-                        <a href="/cafe.by/sign_out">Выход</a>
-                    </li>
-                </ul>
-            </c:when>
-            <c:when test="${role==2}">
-                <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="/cafe.by/index">
-                             ${waiter.login}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/cafe.by/show_order_waiter">Мои заказы</a>
-                    </li>
-                    <li>
-                        <a href="">Добавить заказ</a>
-                    </li>
-                    <li>
-                        <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>
@@ -102,11 +88,45 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <ctg:orderlist/>
+                    <div class="order-container">
+
+                        <div class="qa-message-list">
+
+                            <c:choose>
+                                <c:when test="${waiters!=null}">
+                                    <c:forEach var="waiter" items="${waiters}">
+                                        <div class="message-item">
+                                            <div class="message-inner">
+                                                <div class="clearfix">
+                                                    <form action="/cafe.by/delete_waiter?idWaiter=${waiter.idUser}" method="post">
+
+                                                        <div class="user-detail">
+                                                            <h5 class="handle">${waiter.name} ${waiter.surname}</h5>
+                                                            <button type="submit" class="btn-right" class="btn btn-default">
+                                                                Удалить официанта
+                                                            </button>
+                                                            <div class="post-meta">
+                                                                <div class="asker-meta">
+                                                                    <span class="qa-message-when-data">Логин: ${waiter.login}</span><br>
+                                                                    <span class="qa-message-when-data">Email: ${waiter.email} </span><br>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
+                        </div><!-- ./qa-message-list -->
+                    </div><!-- ./container -->
                 </div>
             </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->
+
 </div>
 <!-- /#wrapper -->

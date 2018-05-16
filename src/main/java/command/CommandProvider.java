@@ -25,6 +25,8 @@ public class CommandProvider {
         commands.put(CommandName.DELETE_PRODUCT,new DeleteProduct());
         commands.put(CommandName.WAITER_PROFILE,new WaiterProfile());
         commands.put(CommandName.EDIT_PROFILE, new EditProfile());
+        commands.put(CommandName.SHOW_WAITER,new ShowWaiter());
+        commands.put(CommandName.SHOW_PRODUCT,new ShowProduct());
     }
 
     public static CommandProvider getInstance() {
