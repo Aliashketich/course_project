@@ -78,7 +78,7 @@
                         <a href="/cafe.by/show_order_waiter">Мои заказы</a>
                     </li>
                     <li>
-                        <a href="">Добавить заказ</a>
+                        <a href="/cafe.by/add_order">Добавить заказ</a>
                     </li>
                     <li>
                         <a href="/cafe.by/show_product">Меню</a>

@@ -17,15 +17,15 @@
             <span class="heading">Добавление продукта</span>
             <div class="form-group">
                 <select id="product-type" name="product_type">
-                    <option value="blin">Блины</option>
-                    <option value="salat">Салаты</option>
-                    <option value="soup">Супы</option>
-                    <option value="fish">Блюда из рыбы</option>
-                    <option value="chicken">Блюда из курицы</option>
-                    <option value="potato">Блюда из картофеля</option>
-                    <option value="beef">Блюда из говядины</option>
-                    <option value="desserts">Десерты</option>
-                    <option value="drink">Напитки</option>
+                    <option value="Блины">Блины</option>
+                    <option value="Салаты">Салаты</option>
+                    <option value="Супы">Супы</option>
+                    <option value="Блюда из рыбы">Блюда из рыбы</option>
+                    <option value="Блюда из курицы">Блюда из курицы</option>
+                    <option value="Блюда из картофеля">Блюда из картофеля</option>
+                    <option value="Блюда из говядины">Блюда из говядины</option>
+                    <option value="Десерты">Десерты</option>
+                    <option value="Напитки">Напитки</option>
                 </select>
             </div>
             <div class="form-group">
