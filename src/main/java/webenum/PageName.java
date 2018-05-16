@@ -2,8 +2,8 @@ package webenum;
 
 public enum PageName {
     INDEX("/front/jsp/index.jsp"),
-    ERROR("/front/jsp/error.jsp"),
-    WAITER_HOME("/front/jsp/waiterViews/menu.jsp");
+    ERROR("/front/jsp/error.jsp");
+
 
     private String path;
 

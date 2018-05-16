@@ -24,10 +24,10 @@ public class SignOut implements ICommand {
             String locale = SessionElements.getLocale(request);
             if ((int)request.getSession().getAttribute("role") == 1) {
                 request.getSession().removeAttribute("admin");
-                request.getSession().setAttribute("role",0);
+                request.getSession().setAttribute("role",null);
             }else{
                 request.getSession().removeAttribute("waiter");
-                request.getSession().setAttribute("role",0);
+                request.getSession().setAttribute("role",null);
             }
             request.getSession().invalidate();
             request.getSession().setAttribute("locale", locale);

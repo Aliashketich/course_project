@@ -3,6 +3,7 @@ package command;
 import command.impl.forward.Index;
 import command.impl.redirect.AddProduct;
 import command.impl.redirect.SignIn;
+import command.impl.redirect.SignOut;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.EnumMap;
@@ -17,6 +18,7 @@ public class CommandProvider {
         commands.put(CommandName.SIGN_IN,new SignIn());
         commands.put(CommandName.INDEX,new Index());
         commands.put(CommandName.ADD_PRODUCT,new AddProduct());
+        commands.put(CommandName.SIGN_OUT, new SignOut());
     }
 
     public static CommandProvider getInstance() {

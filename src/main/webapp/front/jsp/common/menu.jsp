@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ctg" uri="customTags" %>
 <head>
     
     <meta charset="utf-8">
@@ -9,8 +11,6 @@
         <%@include file="/front/css/menu.css"%>
     </style>
     <script>
-
-
         $(document).ready(function () {
             var trigger = $('.hamburger'),
                 overlay = $('.overlay'),
@@ -48,45 +48,53 @@
 
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    Brand
-                </a>
-            </li>
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">Team</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Dropdown heading</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+        <c:choose>
+            <c:when test="${role==1}">
+                <ul class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="/cafe.by/index">
+                            ScoreSystem for Admin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Заказы</a>
+                    </li>
+                    <li>
+                        <a href="#">Меню</a>
+                    </li>
+                    <li>
+                        <a href="#">Сотрудники</a>
+                    </li>
+                    <li>
+                        <a href="#">Администраторы</a>
+                    </li>
+                    <li>
+                        <a href="#">Официанты</a>
+                    </li>
+                    <li>
+                        <a href="/cafe.by/sign_out">Выход</a>
+                    </li>
                 </ul>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="#">Follow me</a>
-            </li>
-        </ul>
+            </c:when>
+            <c:when test="${role==2}">
+                <ul class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="/cafe.by/index">
+                            ScoreSystem for Waiter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Мои заказы</a>
+                    </li>
+                    <li>
+                        <a href="#">Меню</a>
+                    </li>
+                    <li>
+                        <a href="/cafe.by/sign_out">Выход</a>
+                    </li>
+                </ul>
+            </c:when>
+        </c:choose>
     </nav>
     <!-- /#sidebar-wrapper -->
 
@@ -100,8 +108,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2">
-
-                    <img src="/front/image/info_box.jpg" class="img-responsive center-block" alt="1" />
+                    <%--<%@include file="home.jsp"%>--%>
                 </div>
             </div>
         </div>

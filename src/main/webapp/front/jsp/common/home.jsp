@@ -1,6 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="ctg" uri="customTags" %>
 
 <html>
@@ -23,13 +22,13 @@
 
 <c:choose>
     <c:when test="${role==null}">
-        <div id="global_con">
-            <div id="content">
+        <div class="global_con">
+            <div class="content">
                 <div class="work_box">
                     <%@include file="/front/jsp/common/form.jsp" %>
                 </div>
-                <div id="info_box">
-                    <img id="info_box_image" src="/front/image/info_box.jpg">
+                <div class="info_box">
+                    <img class="info_box_image" src="/front/image/info_box.jpg">
                 </div><%--infoBox--%>
             </div><%--content--%>
         </div><%--globalcontent--%>
@@ -39,12 +38,6 @@
     </c:when>
 </c:choose>
 <%@include file="/front/jsp/common/information.jsp" %>
-
-
-
-
-
-
 
 <c:choose>
     <c:when test="${error_data!=null}">
