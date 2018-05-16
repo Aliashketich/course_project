@@ -60,9 +60,6 @@
                         <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
-                        <a href="#">Добавить продукт</a>
-                    </li>
-                    <li>
                         <a href="/cafe.by/sign_out">Выход</a>
                     </li>
                 </ul>
@@ -78,7 +75,7 @@
                         <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
-                        <a href="#">Добавить заказ</a>
+                        <a href="/cafe.by/add_order">Добавить заказ</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>

@@ -17,7 +17,7 @@ public class AddProduct implements ICommand {
 
     private static final Logger LOGGER = Logger.getLogger(AddProduct.class);
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    private PageName pageName = PageName.INDEX; //индекс ли?
+    private PageName pageName = PageName.INDEX;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
