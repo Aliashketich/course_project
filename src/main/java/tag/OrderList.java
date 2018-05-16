@@ -18,7 +18,7 @@ public class OrderList extends TagSupport {
                     productList = "/front/jsp/admin/orderlist.jsp";
                     break;
                 case 2:
-                    productList = "/front/jsp/client/orderlist.jsp";
+                    productList = "/front/jsp/waiter/orderlist.jsp";
                     break;
             }
         }

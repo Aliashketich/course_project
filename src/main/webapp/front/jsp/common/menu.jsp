@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">Заказы</a>
+                        <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
                         <a href="#">Меню</a>
@@ -84,7 +84,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">Мои заказы</a>
+                        <a href="/cafe.by/show_order_waiter">Мои заказы</a>
                     </li>
                     <li>
                         <a href="#">Меню</a>

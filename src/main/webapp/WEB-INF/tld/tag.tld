@@ -10,8 +10,8 @@
     <uri>customTags</uri>
 
     <tag>
-        <name>productlist</name>
-        <tag-class>tag.ProductList</tag-class>
+        <name>orderlist</name>
+        <tag-class>tag.OrderList</tag-class>
         <body-content>empty</body-content>
     </tag>
 

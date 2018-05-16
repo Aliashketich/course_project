@@ -3,7 +3,8 @@ package webenum;
 public enum PageNameRedirect {
     INDEX("/cafe.by/index"),
     ERROR("/cafe.by/error"),
-    WAITER_HOME("/cafe.by/waiterHome");
+    ORDERS("/cafe.by/show_order_waiter");
+
 
     private String path;
 
