@@ -58,16 +58,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/cafe.by/show_order_admin">Заказы</a>
-                    </li>
-                    <li>
-                        <a href="#">Меню</a>
-                    </li>
-                    <li>
-                        <a href="#">Добавить продукт</a>
-                    </li>
-                    <li>
                         <a href="/cafe.by/show_waiter">Официанты</a>
+                    </li>
+                    <li>
+                        <a href="">Добавить официанта</a>
+                    </li>
+                    <li>
+                        <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>

@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/cafe.by/show_order_waiter">Заказы</a>
+                        <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
                         <a href="/cafe.by/show_waiter">Официанты</a>

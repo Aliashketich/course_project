@@ -63,9 +63,6 @@
                         <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
-                        <a href="#">Добавить продукт</a>
-                    </li>
-                    <li>
                         <a href="/cafe.by/show_waiter">Официанты</a>
                     </li>
                     <li>
@@ -85,9 +82,6 @@
                     </li>
                     <li>
                         <a href="/cafe.by/waiter_profile">Мой профиль</a>
-                    </li>
-                    <li>
-                        <a href="">Добавить заказ</a>
                     </li>
                     <li>
                         <a href="/cafe.by/show_product">Меню</a>

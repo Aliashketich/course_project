@@ -75,10 +75,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">Добавить заказ</a>
+                        <a href="/cafe.by/show_product">Меню</a>
                     </li>
                     <li>
-                        <a href="/cafe.by/show_product">Меню</a>
+                        <a href="#">Добавить заказ</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>

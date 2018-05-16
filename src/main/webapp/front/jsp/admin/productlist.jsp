@@ -2,12 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean class="entity.Product" scope="page" id="product"/>
-
+<head>
 <style>
     <%@include file="/front/css/menu.css"%>
     <%@include file="/front/css/orderlist.css" %>
 </style>
-
+    <title>Menu</title>
+</head>
 <div class="order-container">
     <div class="qa-message-list">
         <c:choose>
