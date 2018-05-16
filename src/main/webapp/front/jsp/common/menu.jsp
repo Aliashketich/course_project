@@ -53,11 +53,11 @@
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="/cafe.by/index">
-                            ScoreSystem for Admin
+                            Вы вошли как ${admin.login}.
                         </a>
                     </li>
                     <li>
-                        <a href="#">Заказы</a>
+                        <a href="">Заказы</a>
                     </li>
                     <li>
                         <a href="#">Меню</a>
@@ -80,7 +80,7 @@
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="/cafe.by/index">
-                            ScoreSystem for Waiter
+                            Вы вошли как ${waiter.login}.
                         </a>
                     </li>
                     <li>
@@ -109,6 +109,7 @@
             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2">
                     <%--<%@include file="home.jsp"%>--%>
+
                 </div>
             </div>
         </div>
