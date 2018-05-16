@@ -13,4 +13,8 @@ public interface WaiterService {
     Waiter findWaiterById(int idWaiter) throws ServiceException;
 
     Waiter editWaiter(int idWaiter, String surname, String name, String email)throws ServiceException;
+
+    Waiter findWaiterByIdAndPassword(int idWaiter, String oldPassword)throws ServiceException;
+
+    Waiter changePassword(int idWaiter, String newPassword)throws ServiceException;
 }

@@ -89,4 +89,26 @@ public class WaiterServiceImpl implements WaiterService {
             throw new ServiceException(this.getClass() + ":" + e.getMessage());
         }
     }
+
+    @Override
+    public Waiter findWaiterByIdAndPassword(int idWaiter, String oldPassword) throws ServiceException {
+        LOGGER.log(Level.DEBUG, "Waiter Service: Start findWaiterByIdAndPassword");
+        try {
+            LOGGER.log(Level.DEBUG, "Waiter Service: Finish findWaiterByIdAndPassword");
+            return daoFactory.getWaiterDao().findWaiterByIdAndPassword(idWaiter, oldPassword);
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
+    }
+
+    @Override
+    public Waiter changePassword(int idWaiter, String newPassword) throws ServiceException {
+        LOGGER.log(Level.DEBUG, "ClientService: Start changePassword");
+        try {
+            LOGGER.log(Level.DEBUG, "ClientService: Finish changePassword");
+            return daoFactory.getWaiterDao().changePassword(idWaiter, newPassword);
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
+    }
 }

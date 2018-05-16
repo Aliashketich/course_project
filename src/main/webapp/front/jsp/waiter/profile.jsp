@@ -180,7 +180,7 @@
 
                                                     <div id="flex-btn">
                                                         <button type="button" class="btn btn-default"
-                                                                id="changepassword">Смените пароль</button>
+                                                                id="changepassword">Сменить пароль</button>
                                                         <button type="submit" id="edit-button" class="btn btn-default">Сохранить изменения</button>
                                                     </div>
                                                 </form>

@@ -23,6 +23,8 @@ public class WaiterDAO implements IWaiterDAO {
     private static final String FIND_ALL_WAITERS = "SELECT * FROM waiter JOIN user ON user.iduser=waiter.user_iduser";
     private static final String FIND_BY_ID = "SELECT * FROM waiter JOIN user ON waiter.user_iduser=user.iduser WHERE user.iduser =?";
     private static final String EDIT_WAITER = "UPDATE scoresystem.waiter SET scoresystem.waiter.surname = ?,scoresystem.waiter.name = ?,scoresystem.waiter.email = ? WHERE scoresystem.waiter.user_iduser = ?";
+    private static final String FIND_WAITER_BY_ID_AND_PASSWORD = "SELECT * FROM waiter JOIN user ON waiter.user_iduser=user.iduser WHERE user.iduser =? AND user.password=?";
+    private static final String CHANGE_PASSWORD = "UPDATE scoresystem.user SET scoresystem.user.password = ? WHERE scoresystem.user.iduser = ?";
 
     private ConnectionPull connectionPull = ConnectionPull.getInstance();
 
@@ -235,7 +237,7 @@ public class WaiterDAO implements IWaiterDAO {
 
     @Override
     public Waiter editWaiter(int idWaiter, String surname, String name, String email) throws DaoException{
-        LOGGER.log(Level.DEBUG, "Waiter DAO: start editClient");
+        LOGGER.log(Level.DEBUG, "Waiter DAO: start editWaiter");
         Connection connection = connectionPull.getConnection();
         ResultSet resultSet = null;
         PreparedStatement statement = null;
@@ -251,7 +253,51 @@ public class WaiterDAO implements IWaiterDAO {
         } catch (SQLException e) {
             throw new DaoException("Exception while executing SQL query", e);
         } finally {
-            LOGGER.log(Level.DEBUG, "Client DAO: finish editClient");
+            LOGGER.log(Level.DEBUG, "Waiter DAO: finish editWaiter");
+            connectionPull.putBack(connection, resultSet, statement);
+        }
+        return null;
+    }
+
+    @Override
+    public Waiter findWaiterByIdAndPassword(int idWaiter, String oldPassword) throws DaoException {
+        Connection connection = connectionPull.getConnection();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        Waiter waiter = null;
+        try {
+            statement = connection.prepareStatement(FIND_WAITER_BY_ID_AND_PASSWORD);
+            statement.setInt(1, idWaiter);
+            statement.setString(2, oldPassword);
+            resultSet = statement.executeQuery();
+            if (resultSet.first()) {
+                waiter = createWaiterByResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Exception while executing SQL query", e);
+        } finally {
+            connectionPull.putBack(connection, resultSet, statement);
+        }
+        return waiter;
+    }
+
+    @Override
+    public Waiter changePassword(int idWaiter, String newPassword) throws DaoException {
+        LOGGER.log(Level.DEBUG, "Waiter DAO: start changePassword");
+        Connection connection = connectionPull.getConnection();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(CHANGE_PASSWORD);
+            statement.setString(1, newPassword);
+            statement.setInt(2, idWaiter);
+            if (statement.executeUpdate() != 0) {
+                return findWaiterById(idWaiter);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Exception while executing SQL query", e);
+        } finally {
+            LOGGER.log(Level.DEBUG, "Waiter DAO: finish changePassword");
             connectionPull.putBack(connection, resultSet, statement);
         }
         return null;

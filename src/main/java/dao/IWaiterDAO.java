@@ -16,4 +16,6 @@ public interface IWaiterDAO extends IAbstractDAO {
     List<Waiter> findAllWaiters() throws DaoException;
     Waiter findWaiterById(int idWaiter) throws DaoException;
     Waiter editWaiter(int idWaiter, String surname, String name, String email)throws DaoException;
+    Waiter findWaiterByIdAndPassword(int idWaiter, String oldPassword)throws DaoException;
+    Waiter changePassword(int idWaiter, String newPassword)throws DaoException;
 }
