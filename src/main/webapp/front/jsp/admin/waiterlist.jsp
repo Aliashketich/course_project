@@ -10,6 +10,7 @@
     <style>
         <%@include file="/front/css/menu.css"%>
         <%@include file="/front/css/orderlist.css"%>
+        <%@include file="/front/css/form.css"%>
     </style>
     <script>
         $(document).ready(function () {
@@ -61,9 +62,6 @@
                         <a href="/cafe.by/show_waiter">Официанты</a>
                     </li>
                     <li>
-                        <a href="">Добавить официанта</a>
-                    </li>
-                    <li>
                         <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
@@ -88,7 +86,29 @@
                     <div class="order-container">
 
                         <div class="qa-message-list">
-
+                            <form action="/cafe.by/add_waiter" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control has-border" id="name"
+                                           placeholder="Имя" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control has-border" id="surname"
+                                           placeholder="Фамилия" name="surname">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control has-border" id="email"
+                                           placeholder="Email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control has-border" id="login"
+                                           placeholder="Логин" name="login">
+                                </div>
+                                <div class="form-group help">
+                                    <input type="password" class="form-control has-border" id="password"
+                                           placeholder="Пароль" name="password">
+                                </div>
+                                <button type="submit" id="signup-button" class="btn btn-default">Добавить</button>
+                            </form>
                             <c:choose>
                                 <c:when test="${waiters!=null}">
                                     <c:forEach var="waiter" items="${waiters}">
@@ -96,7 +116,6 @@
                                             <div class="message-inner">
                                                 <div class="clearfix">
                                                     <form action="/cafe.by/delete_waiter?idWaiter=${waiter.idUser}" method="post">
-
                                                         <div class="user-detail">
                                                             <h5 class="handle">${waiter.name} ${waiter.surname}</h5>
                                                             <button type="submit" class="btn-right" class="btn btn-default">
@@ -108,7 +127,6 @@
                                                                     <span class="qa-message-when-data">Email: ${waiter.email} </span><br>
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                     </form>
                                                 </div>

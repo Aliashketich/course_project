@@ -7,6 +7,7 @@ public enum PageNameRedirect {
     PROFILE("/cafe.by/waiter_profile"),
     WAITERS("/cafe.by/show_waiter"),
     PRODUCTS("/cafe.by/show_product"),
+    ADD_WAITER("/cafe.by/add_waiter"),
     ORDERS("/cafe.by/show_order_waiter");
 
 

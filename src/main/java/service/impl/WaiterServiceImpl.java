@@ -1,6 +1,7 @@
 package service.impl;
 
 import dao.ext.WaiterDAO;
+import entity.User;
 import entity.ext.Waiter;
 import exception.DaoException;
 import exception.ServiceException;
@@ -110,5 +111,27 @@ public class WaiterServiceImpl implements WaiterService {
         } catch (DaoException e) {
             throw new ServiceException(this.getClass() + ":" + e.getMessage());
         }
+    }
+
+    @Override
+    public Waiter registrationWaiter(String login, String password, String name, String surname, String email) throws ServiceException {
+        LOGGER.log(Level.DEBUG, "Waiter Service: Sign up started");
+        Waiter waiter = null;
+        User user = null;
+        try {
+            if (Validator.isNull(login, password, name, surname, email) && Validator.isEmptyString(login, password, name, surname, email) && Validator.matchProperName(name, surname) && Validator.matchLogin(login) && Validator.matchPassword(password) && Validator.matchEmail(email)) {
+//            password = Hasher.sha1Hash(password);
+                if (daoFactory.getAdminDao().findAdminByLogin(login) == null) {
+                    user = daoFactory.getWaiterDao().addUser(login, password);
+                    if (user != null) {
+                        waiter = daoFactory.getWaiterDao().addWaiter(user.getIdUser(), login, name, surname, email);
+                    }
+                }
+            }
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
+        LOGGER.log(Level.DEBUG, "Client Service: finish SignUp");
+        return waiter;
     }
 }

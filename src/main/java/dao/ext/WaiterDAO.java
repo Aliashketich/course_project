@@ -19,7 +19,7 @@ public class WaiterDAO implements IWaiterDAO {
     private static final String FIND_USER_BY_LOGIN = "SELECT * FROM user  WHERE user.login =?";
     private static final String FIND_BY_EMAIL = "SELECT * FROM waiter  WHERE waiter.email =?";
     private static final String ADD_USER = "INSERT INTO user (login,password,role) VALUES (?,?,?)";
-    private static final String ADD_CLIENT = "INSERT INTO waiter (user_iduser,name,surname,email) VALUES (?,?,?,?)";
+    private static final String ADD_WAITER = "INSERT INTO waiter (user_iduser,name,surname,email) VALUES (?,?,?,?)";
     private static final String FIND_ALL_WAITERS = "SELECT * FROM waiter JOIN user ON user.iduser=waiter.user_iduser";
     private static final String FIND_BY_ID = "SELECT * FROM waiter JOIN user ON waiter.user_iduser=user.iduser WHERE user.iduser =?";
     private static final String EDIT_WAITER = "UPDATE scoresystem.waiter SET scoresystem.waiter.surname = ?,scoresystem.waiter.name = ?,scoresystem.waiter.email = ? WHERE scoresystem.waiter.user_iduser = ?";
@@ -148,7 +148,7 @@ public class WaiterDAO implements IWaiterDAO {
         PreparedStatement statement = null;
         LOGGER.log(Level.DEBUG, "Waiter DAO: start addWaiter");
         try {
-            statement = connection.prepareStatement(ADD_CLIENT);
+            statement = connection.prepareStatement(ADD_WAITER);
             statement.setInt(1, idUser);
             statement.setString(2, name);
             statement.setString(3, surname);

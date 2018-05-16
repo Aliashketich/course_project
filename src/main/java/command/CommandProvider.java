@@ -27,6 +27,7 @@ public class CommandProvider {
         commands.put(CommandName.EDIT_PROFILE, new EditProfile());
         commands.put(CommandName.SHOW_WAITER,new ShowWaiter());
         commands.put(CommandName.SHOW_PRODUCT,new ShowProduct());
+        commands.put(CommandName.ADD_WAITER,new AddWaiter());
     }
 
     public static CommandProvider getInstance() {

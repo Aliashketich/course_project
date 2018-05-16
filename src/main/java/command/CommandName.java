@@ -8,8 +8,6 @@ public enum CommandName {
     SIGN_OUT,
     SHOW_ORDER_ADMIN,
     SHOW_ORDER_WAITER,
-    ADD_PRODUCT_BASKET,
-    REMOVE_PRODUCT_BASKET,
     EDIT_PROFILE,
     CLOSE_ORDER,
     WAITER_PROFILE,
@@ -17,5 +15,5 @@ public enum CommandName {
     ADD_PRODUCT,
     SHOW_WAITER,
     SHOW_PRODUCT,
-    SHOW_ADMIN
+    ADD_WAITER
 }
