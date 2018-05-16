@@ -23,4 +23,6 @@ public interface IAdminDAO extends IAbstractDAO {
     Admin changePassword(int idAdmin, String password)throws DaoException;
 
     Admin findAdminByIdAndPassword(int idAdmin, String oldPassword)throws DaoException;
+
+    Admin findAdminById(int idAdmin) throws DaoException;
 }
