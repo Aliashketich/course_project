@@ -22,6 +22,8 @@ public class WaiterDAO implements IWaiterDAO {
     private static final String ADD_CLIENT = "INSERT INTO waiter (user_iduser,name,surname,email) VALUES (?,?,?,?)";
     private static final String FIND_ALL_WAITERS = "SELECT * FROM waiter JOIN user ON user.iduser=waiter.user_iduser";
     private static final String FIND_BY_ID = "SELECT * FROM waiter JOIN user ON waiter.user_iduser=user.iduser WHERE user.iduser =?";
+    private static final String EDIT_WAITER = "UPDATE scoresystem.waiter SET scoresystem.waiter.surname = ?,scoresystem.waiter.name = ?,scoresystem.waiter.email = ? WHERE scoresystem.waiter.user_iduser = ?";
+
     private ConnectionPull connectionPull = ConnectionPull.getInstance();
 
 
@@ -230,6 +232,31 @@ public class WaiterDAO implements IWaiterDAO {
         return waiter;
 
     }
+
+    @Override
+    public Waiter editWaiter(int idWaiter, String surname, String name, String email) throws DaoException{
+        LOGGER.log(Level.DEBUG, "Waiter DAO: start editClient");
+        Connection connection = connectionPull.getConnection();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(EDIT_WAITER);
+            statement.setString(1, surname);
+            statement.setString(2, name);
+            statement.setString(3, email);
+            statement.setInt(4, idWaiter);
+            if (statement.executeUpdate() != 0) {
+                return findWaiterById(idWaiter);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Exception while executing SQL query", e);
+        } finally {
+            LOGGER.log(Level.DEBUG, "Client DAO: finish editClient");
+            connectionPull.putBack(connection, resultSet, statement);
+        }
+        return null;
+    }
+
     private Waiter createWaiterByResultSet(ResultSet resultSet) throws DaoException {
         Waiter waiter = new Waiter();
         try {

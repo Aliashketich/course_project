@@ -20,4 +20,9 @@
         <tag-class>tag.Menu</tag-class>
         <body-content>empty</body-content>
     </tag>
+    <tag>
+        <name>productlist</name>
+        <tag-class>tag.ProductList</tag-class>
+        <body-content>empty</body-content>
+    </tag>
 </taglib>

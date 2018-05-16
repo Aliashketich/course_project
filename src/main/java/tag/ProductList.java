@@ -18,13 +18,10 @@ public class ProductList extends TagSupport {
                     productList = "/front/jsp/admin/productlist.jsp";
                     break;
                 case 2:
-                    productList = "/front/jsp/client/productlist.jsp";
+                    productList = "/front/jsp/waiter/productlist.jsp";
                     break;
             }
-        }else{
-            productList = "/front/jsp/common/productlist.jsp";
         }
-
         try {
             pageContext.include(productList);
         } catch (IOException | ServletException e) {

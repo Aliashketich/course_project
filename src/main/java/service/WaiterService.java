@@ -11,4 +11,6 @@ public interface WaiterService {
     Waiter findWaiterByEmail(String email)throws ServiceException;
     List<Waiter> findAllWaiters() throws ServiceException;
     Waiter findWaiterById(int idWaiter) throws ServiceException;
+
+    Waiter editWaiter(int idWaiter, String surname, String name, String email)throws ServiceException;
 }

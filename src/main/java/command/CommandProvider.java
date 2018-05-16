@@ -1,13 +1,9 @@
 package command;
 
-import command.impl.forward.Index;
-import command.impl.forward.ShowOrderAdmin;
-import command.impl.forward.ShowOrderWaiter;
-import command.impl.redirect.AddProduct;
-import command.impl.redirect.CloseOrder;
-import command.impl.redirect.SignIn;
-import command.impl.redirect.SignOut;
+import command.impl.forward.*;
+import command.impl.redirect.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.EnumMap;
 import java.util.Map;
@@ -25,8 +21,10 @@ public class CommandProvider {
         commands.put(CommandName.SHOW_ORDER_ADMIN,new ShowOrderAdmin());
         commands.put(CommandName.SHOW_ORDER_WAITER,new ShowOrderWaiter());
         commands.put(CommandName.CLOSE_ORDER,new CloseOrder());
-
-
+        commands.put(CommandName.FIND_BY_TYPE,new FindByType());
+        commands.put(CommandName.DELETE_PRODUCT,new DeleteProduct());
+        commands.put(CommandName.WAITER_PROFILE,new WaiterProfile());
+        commands.put(CommandName.EDIT_PROFILE, new EditProfile());
     }
 
     public static CommandProvider getInstance() {

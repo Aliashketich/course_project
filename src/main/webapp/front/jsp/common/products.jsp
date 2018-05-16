@@ -53,11 +53,11 @@
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="/cafe.by/index">
-                            ${admin.login}
+                                ${admin.login}
                         </a>
                     </li>
                     <li>
-                        <a href="/cafe.by/show_order_waiter">Заказы</a>
+                        <a href="/cafe.by/show_order_admin">Заказы</a>
                     </li>
                     <li>
                         <a href="#">Меню</a>
@@ -90,7 +90,7 @@
                         <a href="/cafe.by/waiter_profile">Мой профиль</a>
                     </li>
                     <li>
-                        <a href="#">Меню</a>
+                        <a href="???????????????????">Меню</a>
                     </li>
                     <li>
                         <a href="/cafe.by/sign_out">Выход</a>
@@ -111,7 +111,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <ctg:orderlist/>
+                    <ctg:productlist/>
                 </div>
             </div>
         </div>

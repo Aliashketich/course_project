@@ -87,6 +87,9 @@
                         <a href="/cafe.by/show_order_waiter">Мои заказы</a>
                     </li>
                     <li>
+                        <a href="/cafe.by/waiter_profile">Мой профиль</a>
+                    </li>
+                    <li>
                         <a href="#">Меню</a>
                     </li>
                     <li>

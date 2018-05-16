@@ -78,4 +78,15 @@ public class WaiterServiceImpl implements WaiterService {
             throw new ServiceException(this.getClass() + ":" + e.getMessage());
         }
     }
+
+    @Override
+    public Waiter editWaiter(int idWaiter, String surname, String name, String email)throws ServiceException {
+        LOGGER.log(Level.DEBUG, "ClientService: Start editClient");
+        try {
+            LOGGER.log(Level.DEBUG, "ClientService: Finish editClient");
+            return daoFactory.getWaiterDao().editWaiter(idWaiter, surname, name, email);
+        } catch (DaoException e) {
+            throw new ServiceException(this.getClass() + ":" + e.getMessage());
+        }
+    }
 }
