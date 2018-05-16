@@ -2,6 +2,7 @@ package dao.ext;
 
 import connectionpull.ConnectionPull;
 import dao.IAdminDAO;
+import entity.User;
 import entity.ext.Admin;
 import exception.DaoException;
 import org.apache.log4j.Level;
@@ -17,6 +18,9 @@ public class AdminDAO implements IAdminDAO {
     private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM admin JOIN user ON admin.user_iduser=user.iduser WHERE user.login =? AND user.password = ? AND user.role = 1";
     private static final String FIND_ADMIN_BY_LOGIN = "SELECT * FROM admin JOIN user ON admin.user_iduser=user.iduser WHERE user.login =? AND user.role=1";
     private static final String FIND_ALL_ADMINS = "SELECT * FROM admin JOIN user ON admin.user_iduser=user.iduser";
+    private static final String ADD_USER = "INSERT INTO scoresystem.user (login,password,role) VALUES (?,?,?)";
+    private static final String FIND_USER_BY_LOGIN = "SELECT * FROM user  WHERE user.login =?";
+
     private ConnectionPull connectionPull = ConnectionPull.getInstance();
 
 
@@ -49,7 +53,7 @@ public class AdminDAO implements IAdminDAO {
     }
 
     @Override
-    public boolean findAdminByLogin(String login) throws DaoException {
+    public Admin findAdminByLogin(String login) throws DaoException {
         LOGGER.log(Level.DEBUG, "Admin Dao: start findAdminByLogin");
         Connection connection = connectionPull.getConnection();
         ResultSet resultSet = null;
@@ -59,7 +63,7 @@ public class AdminDAO implements IAdminDAO {
             statement.setString(1, login);
             resultSet = statement.executeQuery();
             if (resultSet.first()) {
-                return true;
+                return createAdminByResultSet(resultSet);
             }
         } catch (SQLException e) {
             throw new DaoException("Exception while executing SQL query", e);
@@ -67,7 +71,7 @@ public class AdminDAO implements IAdminDAO {
             LOGGER.log(Level.DEBUG, "Admin Dao: finish findAdminByLogin");
             connectionPull.putBack(connection, resultSet, statement);
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -91,6 +95,82 @@ public class AdminDAO implements IAdminDAO {
         }
         return admins;
 
+    }
+
+    @Override
+    public User addUser(String login, String password) throws DaoException {
+        Connection connection = connectionPull.getConnection();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        LOGGER.log(Level.DEBUG, "Admin DAO: start addUser");
+        try {
+            statement = connection.prepareStatement(ADD_USER);
+            statement.setString(1, login);
+            statement.setString(2, password);
+            statement.setInt(3, 1);
+            if (statement.executeUpdate() != 0) {
+                System.out.println(findUserByLogin(login));
+                return findUserByLogin(login);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Exception while executing SQL query", e);
+        } finally {
+            LOGGER.log(Level.DEBUG, "Admin DAO: finish addUser");
+            connectionPull.putBack(connection, resultSet, statement);
+        }
+        return null;
+
+    }
+
+    @Override
+    public User findUserByLogin(String login) throws DaoException {
+        Connection connection = connectionPull.getConnection();
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        User user = null;
+        try {
+            statement = connection.prepareStatement(FIND_USER_BY_LOGIN);
+            statement.setString(1, login);
+            resultSet = statement.executeQuery();
+            if (resultSet.first()) {
+                user = new User();
+                user.setIdUser(resultSet.getInt("iduser"));
+                user.setLogin(resultSet.getString("login"));
+                user.setPassword(resultSet.getString("password"));
+                user.setRole(resultSet.getBoolean("role"));
+                System.out.println(user);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Exception while executing SQL query", e);
+        } finally {
+            connectionPull.putBack(connection, resultSet, statement);
+        }
+        return user;
+    }
+
+    @Override
+    public Admin addAdmin(int idUser, String login) throws DaoException {
+        return null;
+    }
+
+    @Override
+    public void deleteAdmin(int idAdmin) throws DaoException {
+
+    }
+
+    @Override
+    public void deleteUser(int idAdmin) throws DaoException {
+
+    }
+
+    @Override
+    public Admin changePassword(int idAdmin, String password) throws DaoException {
+        return null;
+    }
+
+    @Override
+    public Admin findAdminByIdAndPassword(int idAdmin, String oldPassword) throws DaoException {
+        return null;
     }
 
     private Admin createAdminByResultSet(ResultSet resultSet) throws DaoException {
