@@ -10,7 +10,6 @@
     <%@include file="/front/css/menu.css"%>
     <%@include file="/front/css/orderlist.css" %>
 </style>
-
 <div class="order-container">
     <div class="qa-message-list">
         <c:choose>
@@ -83,4 +82,13 @@
         </c:choose>
     </div><!-- ./qa-message-list -->
 </div>
+<%@include file="/front/jsp/common/information.jsp" %>
+
+<c:choose>
+    <c:when test="${error_data!=null}">
+        <script>
+            <%@include file="/front/js/information.js" %>
+        </script>
+    </c:when>
+</c:choose>
 <!-- ./container -->

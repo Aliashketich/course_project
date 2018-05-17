@@ -109,4 +109,13 @@
     </div>
     <!-- /#page-content-wrapper -->
 </div>
+<%@include file="/front/jsp/common/information.jsp" %>
+
+<c:choose>
+    <c:when test="${error_data!=null}">
+        <script>
+            <%@include file="/front/js/information.js" %>
+        </script>
+    </c:when>
+</c:choose>
 <!-- /#wrapper -->
